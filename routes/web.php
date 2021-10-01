@@ -19,4 +19,4 @@ Route::post('/post/update/{id}', 'PostController@update');
 
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
-Route::get('/comment/delete/{id}', 'CommentController@commentDelete')->name('comment.delete');
+Route::get('/comment/delete/{id}', 'CommentController@commentDelete');

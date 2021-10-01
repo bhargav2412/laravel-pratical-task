@@ -29,8 +29,13 @@ class CommentController extends Controller
         return Redirect()->back()->with('success', 'Reply sent succeefully.');
     }
 
-    public function commentDelete(Request $request)
+    public function commentDelete(Request $request, $id)
     {
-        die('12');
+        $deleteNestedComment = Comment::where('parent_id', $id)->Orwhere('id', $id)->delete();
+        if ($deleteNestedComment) {
+            return Redirect()->back()->with('success', 'Comment added succeefully.');
+        } else {
+            return Redirect()->back()->with('error', 'Somthing went to wrong!');
+        }
     }
 }
